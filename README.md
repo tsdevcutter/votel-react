@@ -1,8 +1,8 @@
-# Getting Started with Create React App
+# Getting Started with Pageant APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped for pageants
 
-## vOTEL
+## VOTEL
 
 The stage is getting bigger! 🚀
 
