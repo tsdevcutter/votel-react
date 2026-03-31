@@ -8,6 +8,7 @@ import Home from './Pages/Home';
 import Events from './Pages/Events';
 import SingleEvent from './Pages/SingleEvent';
 import Competitions from './Pages/Competitions';
+import SingleModel from './Pages/SingleModel';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                   <Route path="/miss-south-africa" element={<Events />}/> 
                   <Route path="/event/:id" element={<SingleEvent />}/>                   
                   <Route path="/competitions" element={<Competitions />}/> 
+                  <Route path="/modal/:id" element={<SingleModel />}/>  
               </Routes>
           </div>
       </Router>
