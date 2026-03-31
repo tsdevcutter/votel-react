@@ -1,0 +1,145 @@
+@media only screen and (min-width: 1590px) {
+  .gallery-box {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4 !important;
+  }
+}
+@media only screen and (max-width: 1589px) {
+  .gallery-box {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3 !important;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .special-name-single {
+    font-size: 320px;
+  }
+  h3.winner-base span {
+    font-size: 210px;
+  }
+  .welcome-title {
+    font-size: 110px;
+  }
+  a.last-no-style {
+    font-size: 120px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  h3.winner-base span {
+      font-size: 130px;
+  }
+  .gallery-box {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2 !important;
+  }
+  .bio-candidate {
+    padding: 300px 50px;
+    font-size: 45px;
+  }
+  .style-two {
+    font-size: 70px !important;
+    display: block;
+  }
+  a.last-no-style {
+    width: 80%;
+    line-height: 110px;
+    font-size: 40px;
+
+  }
+  .open-highlight {
+    padding: 10px 20px;
+  }
+  .welcome-title {
+    font-size: 75px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  h3.winner-base span {
+      font-size: 75px;
+  }
+  h3.winner-base {
+    color: #0000007e;
+      font-size: 70px;
+      line-height: 80px;
+  }
+  .special-name-single {
+    font-size: 160px;
+   }
+
+   iframe.frame-view-action {
+      height: 360px;
+      width: 85%;
+  }
+  h2.head-2.super-head {
+      font-size: 90px;
+      padding-top: 20%;
+  }
+  .bio-candidate {
+    padding: 300px 30px;
+    font-size: 40px;
+    line-height: 60px;
+  }
+  .bottom-line {
+    margin-top: -60px;
+  }
+  .txt-bio {
+    color: #b7b7b7;
+  }
+  .welcome-title {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h3.winner-base span {
+      font-size: 50px;
+  }
+  h3.winner-base {
+    color: #0000007e;
+      font-size: 50px;
+      line-height: 80px;
+  }
+  .special-name-single {
+    font-size: 140px;
+   }
+   img.votel-image-block1 {
+      border-radius: 70px;
+      float: none;
+      width: 100%;
+  }
+  .gallery-box {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1 !important;
+  }
+  h2.head-2.super-head {
+    font-size: 50px;
+  }
+
+  .bio-candidate {
+    padding: 300px 10px;
+    font-size: 35px;
+    line-height: 50px;
+  }
+  .bottom-line {
+    margin-top: -45px;
+  }
+  .open-highlight {
+    float: block;
+  }
+  a.last-no-style{
+    width: 90%;
+  }
+  .welcome-title {
+    font-size: 30px;
+  }
+  .mid-copy-text.home-copy{
+    display: none;
+  }
+  .mghom-head {
+    margin-bottom: 25px;
+  }
+}

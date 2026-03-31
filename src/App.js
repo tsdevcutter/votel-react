@@ -15,8 +15,8 @@ function App() {
           <div className="main-container">          
               <Routes>
                   <Route path="/" element={<Home />}/> 
-                  <Route path="/event" element={<Events />}/> 
-                  <Route path="/event/:id" element={<SingleEvent />}/> 
+                  <Route path="/miss-south-africa" element={<Events />}/> 
+                  <Route path="/event/:id" element={<SingleEvent />}/>                   
                   <Route path="/competitions" element={<Competitions />}/> 
               </Routes>
           </div>
