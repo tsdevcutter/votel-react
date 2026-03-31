@@ -22,7 +22,7 @@ jobs:
       # 2. Set up Node.js (matches the version you use locally)
       - name: Setup Node.js
         uses: actions/setup-node@v4
-        wwith:
+        with:
           node-version: '24' # Updated to the current standard
           cache: 'npm'
 
