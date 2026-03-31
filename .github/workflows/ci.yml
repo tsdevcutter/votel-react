@@ -7,6 +7,9 @@ on:
   pull_request:
     branches: [ "main" ] # Run tests when trying to merge into main
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -19,9 +22,9 @@ jobs:
       # 2. Set up Node.js (matches the version you use locally)
       - name: Setup Node.js
         uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm' # Speeds up future runs by caching node_modules
+        wwith:
+          node-version: '24' # Updated to the current standard
+          cache: 'npm'
 
       # 3. Clean install of dependencies (ignores local lockfile drifts)
       - name: Install Dependencies
@@ -31,6 +34,8 @@ jobs:
       # NOTE: --watchAll=false is critical so the process finishes and returns a result
       - name: Run Tests
         run: npm test -- --watchAll=false
+        env:
+          CI: true
 
       # 5. Verify the build process works
       # If your React code has syntax errors or broken imports, this will fail
