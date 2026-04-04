@@ -28,7 +28,7 @@ jobs:
 
       # 3. Clean install of dependencies (ignores local lockfile drifts)
       - name: Install Dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       # 4. Run your test suite
       # NOTE: --watchAll=false is critical so the process finishes and returns a result

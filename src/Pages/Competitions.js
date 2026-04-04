@@ -14,9 +14,9 @@ function Competitions() {
   const collectCompetitionsList = async () =>{
     try{
 
-      console.log(CONSTANTS.API_PMODEL);
+      //console.log(CONSTANTS.API_PMODEL);
       const resCompe = await axios.get(CONSTANTS.API_PMODEL + "poles");
-      console.log(resCompe);
+      //console.log(resCompe);
       setCompetitionList(resCompe.data)
     }catch(err){
       console.log(err);

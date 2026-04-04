@@ -32,7 +32,6 @@ function Home() {
   }
 
   const handleSlideChange = (slideObject) => {
-    //console.log(slideObject);
     setCurrentEvent(slideObject);
   }
 
@@ -49,7 +48,7 @@ function Home() {
       {
         currentEvent && (
           <div className="banner" style={{ 
-            backgroundImage: `url("${currentEvent.banner_event_main.url ? currentEvent.banner_event_main.url : defaultImageUrl}")` 
+              backgroundImage: `url("${currentEvent.banner_event_main.url ? currentEvent.banner_event_main.url : defaultImageUrl}")` 
               }}>
              
               <div className="center-screen-outer">
