@@ -4,7 +4,6 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-
 import Home from './Pages/Home';
 import Events from './Pages/Events';
 import SingleEvent from './Pages/SingleEvent';
