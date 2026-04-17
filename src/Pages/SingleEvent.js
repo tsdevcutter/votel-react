@@ -31,57 +31,55 @@ function SingleEvent() {
   })
   const scale4 = useTransform(scrollYProgress, [0,1], [1,4]);
   //////////////////
+  // 1. Wrap collectSingleEvent in useCallback
+  const collectSingleEvent = useCallback(async () => {
+    try {
+      let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: CONSTANTS.API_PMODEL + "occassion/" + params.id,
+      };
+
+      const resEvent = await axios(config);
+      setCurrentEvent(resEvent.data);
+
+      if (resEvent.data.winning_candidate) {
+        setWinningCandidate(resEvent.data.winning_candidate);
+      }
+
+      if (resEvent.data.second_feature !== false) {
+        setSecondFeatured(resEvent.data.second_feature.url);
+        const secondWin = await axios.get(CONSTANTS.API_PMODEL + "candidate/" + resEvent.data.feature_candidate.ID);
+        setSecondaryWinnerCandidate(secondWin.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }, [params.id]); // Dependencies for the function itself
+
+  // 2. Wrap collectCandidateDetails in useCallback
+  const collectCandidateDetails = useCallback(async () => {
+    try {
+      // Added check to ensure winningCandidate exists before accessing ID
+      if (!winningCandidate?.ID) return; 
+
+      const resCandidate = await axios.get(CONSTANTS.API_PMODEL + "candidate/" + winningCandidate.ID);
+      setFullCandidate(resCandidate.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [winningCandidate]);
 
   useEffect(() => {
     collectSingleEvent();
-  },[])
+  },[collectSingleEvent])
 
   useEffect(() => {
     if(winningCandidate !== null){
         collectCandidateDetails()
     }
-  },[winningCandidate])
+  },[winningCandidate, collectCandidateDetails])
 
-  const collectSingleEvent = async () => {
-    try{
-
-      let config = {
-        method: 'get',
-        maxBodyLength: Infinity,
-        url: CONSTANTS.API_PMODEL + "occassion/"+ params.id,
-      };
-
-      const resEvent = await axios(config);
-      
-      //console.log("resEvent");
-      setCurrentEvent(resEvent.data);
-
-      if(resEvent.data.winning_candidate){
-        setWinningCandidate(resEvent.data.winning_candidate);
-      }
-
-      //If have secondary winner exists
-      if(resEvent.data.second_feature !== false){
-        setSecondFeatured(resEvent.data.second_feature.url);
-        const secondWin = await axios.get(CONSTANTS.API_PMODEL + "candidate/" + resEvent.data.feature_candidate.ID);
-        setSecondaryWinnerCandidate(secondWin.data);
-      }
-
-    }catch(err){
-      console.log(err);
-    }
-  }
-
-  const collectCandidateDetails = async () => {
-    try{
-
-      const resCandidate = await axios.get(CONSTANTS.API_PMODEL + "candidate/" + winningCandidate.ID);
-      setFullCandidate(resCandidate.data);
-      
-    }catch(err){
-      console.log(err);
-    }
-  }
 
   const getCurrentImage = (imgCurrent) => {
     //console.log(imgCurrent)
