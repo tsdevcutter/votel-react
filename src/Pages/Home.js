@@ -4,6 +4,7 @@ import EventSlide from '../components/EventSlide';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
+import { getVotingTotalCost } from '../utils/voting';
 
 function Home() {
 
@@ -40,11 +41,6 @@ function Home() {
     setShowSnipVideoModal(true)
   }
 
-  const getVotingTotalCost = (voteCount) => {
-    const totalCost = voteCount * SMS_RATE;
-    // .toFixed(2) ensures it looks like currency (e.g., 10.50)
-    return totalCost.toFixed(2); 
-  }
   return (
     <>
      <Helmet>

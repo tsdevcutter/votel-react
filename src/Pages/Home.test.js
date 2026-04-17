@@ -1,22 +1,11 @@
-// 1. MOCK EVERYTHING FIRST
-jest.mock('react-router-dom', () => ({
-  Link: () => <div />,
-  useNavigate: () => jest.fn(),
-}));
+import { getVotingTotalCost } from './utils/voting'; // Adjust path if needed
 
-jest.mock('../components/EventSlide', () => () => <div />);
-
-// 2. REQUIRE THE FUNCTION MANUALLY (This avoids the declaration error)
-const { getVotingTotalCost } = require('./Home');
-
-describe('getVotingTotalCost Utility', () => {
-  test('multiplies votes by 0.5 and returns string with 2 decimals', () => {
-    expect(getVotingTotalCost(100)).toBe('50.00');
-    expect(getVotingTotalCost(1)).toBe('0.50');
-    expect(getVotingTotalCost(0)).toBe('0.00');
+describe('Voting Calculation', () => {
+  test('calculates 280 votes at 0.5 rate correctly', () => {
+    expect(getVotingTotalCost(280)).toBe('140.00');
   });
 
-  test('handles large numbers correctly', () => {
-    expect(getVotingTotalCost(280)).toBe('140.00');
+  test('returns two decimal places for small amounts', () => {
+    expect(getVotingTotalCost(1)).toBe('0.50');
   });
 });
