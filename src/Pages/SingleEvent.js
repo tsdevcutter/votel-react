@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import TopHeader from '../components/TopHeader';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -70,6 +70,7 @@ function SingleEvent() {
     }
   }, [winningCandidate]);
 
+  
   useEffect(() => {
     collectSingleEvent();
   },[collectSingleEvent])
