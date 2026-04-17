@@ -12,7 +12,8 @@ function Home() {
   const [showSnipVideoModal, setShowSnipVideoModal]                     = useState(false);
 
   const defaultImageUrl = 'https://votelog.tsdevcut.co.za/wp-content/themes/votelogs/images/banner-5185596.png';
- 
+  const SMS_RATE = 0.5;
+
   useEffect(() => {
     collectListOfEvents();
   },[]);
@@ -38,6 +39,12 @@ function Home() {
     console.log(currentEvent);
     setShowSnipVideoModal(true)
   }
+
+  const getVotingTotalCost = (voteCount) => {
+    const totalCost = voteCount * SMS_RATE;
+    // .toFixed(2) ensures it looks like currency (e.g., 10.50)
+    return totalCost.toFixed(2); 
+  }
   return (
     <>
      <Helmet>
@@ -47,12 +54,14 @@ function Home() {
       {
         currentEvent && (
           <div className="banner" style={{ 
-              backgroundImage: `url("${currentEvent.banner_event_main.url ? currentEvent.banner_event_main.url : defaultImageUrl}")` 
+                backgroundImage: `url("${currentEvent.banner_event_main.url ? currentEvent.banner_event_main.url : defaultImageUrl}")` 
               }}>
              
               <div className="center-screen-outer">
                   <div className="center-screen-inn">
+                    <p>{getVotingTotalCost(280)}</p>
                   <div className="slider-row">
+
                      {
                       eventList && eventList.length > 0 && 
                       ( 

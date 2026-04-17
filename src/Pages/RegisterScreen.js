@@ -27,9 +27,6 @@ function RegisterScreen() {
           }
           const resUser = await axios.post(CONSTANTS.API_PMODEL + "users/register", contData);
 
-          console.log(contData);
-          console.log(resUser);
-
           nameRef.current.value         = "";
           emailAddressRef.current.value = "";
 

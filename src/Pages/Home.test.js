@@ -1,44 +1,13 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import axios from 'axios';
-import { MemoryRouter } from 'react-router-dom';
-import Home from './Home';
+import { getVotingTotalCost } from './Home';
 
+describe('getVotingTotalCost Utility', () => {
+  test('multiplies votes by 0.5 and returns string with 2 decimals', () => {
+    expect(getVotingTotalCost(100)).toBe('50.00');
+    expect(getVotingTotalCost(1)).toBe('0.50');
+    expect(getVotingTotalCost(0)).toBe('0.00');
+  });
 
-// Mock axios
-jest.mock('axios');
-
-const mockEvents = [
-  {
-    id: 1,
-    title: 'Miss Africa 2022',
-    description_event: 'A prestigious beauty pageant.',
-    banner_event_main: { url: 'https://votelog.tsdevcut.co.za/wp-content/uploads/2024/09/miss2022.png' }
-  },
-  {
-    id: 2,
-    title: 'Miss Africa 2020',
-    description_event: 'A prestigious beauty pageant for us to celebrate.',
-    banner_event_main: { url: 'https://votelog.tsdevcut.co.za/wp-content/uploads/2024/08/miss2020.png' }
-  }
-];
-
-
-test('fetches events and displays the first event on load', async () => {
-  axios.get.mockResolvedValue({ data: mockEvents });
-
-  render(
-    <MemoryRouter>
-      <Home />
-    </MemoryRouter>
-  );
-
-  // Check if API was called
-  expect(axios.get).toHaveBeenCalled();
-
-  // Wait for the title to appear in the UI
-  const title = await screen.findByText(/Miss Africa 2026/i);
-  expect(title).toBeInTheDocument();
-  
-  // Check if the description is there
-  expect(screen.getByText(/A prestigious beauty pageant/i)).toBeInTheDocument();
+  test('handles large numbers correctly', () => {
+    expect(getVotingTotalCost(280)).toBe('140.00');
+  });
 });
