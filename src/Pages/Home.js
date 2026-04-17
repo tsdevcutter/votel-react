@@ -13,7 +13,6 @@ function Home() {
   const [showSnipVideoModal, setShowSnipVideoModal]                     = useState(false);
 
   const defaultImageUrl = 'https://votelog.tsdevcut.co.za/wp-content/themes/votelogs/images/banner-5185596.png';
-  const SMS_RATE = 0.5;
 
   useEffect(() => {
     collectListOfEvents();
@@ -36,10 +35,6 @@ function Home() {
     setCurrentEvent(slideObject);
   }
 
-  const viewPopVideo = ()=> {
-    console.log(currentEvent);
-    setShowSnipVideoModal(true)
-  }
 
   return (
     <>

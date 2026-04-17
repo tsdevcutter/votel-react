@@ -299,7 +299,7 @@ function SingleEvent() {
             <div className="black-modal">
                 <button className="btn-unstyle nav-button-size1" onClick={() => setPopUpImage(false)}> <FaRegWindowClose/></button>
                     <div className="modal-body-frame">
-                       <img src={clickOnImage} className="viewed-image" />
+                       <img src={clickOnImage} className="viewed-image" alt="Video Pageant"/>
                     </div>
               </div>
           )
