@@ -1,13 +1,12 @@
-import { getVotingTotalCost } from './Home';
-
+// 1. MOCK EVERYTHING FIRST
 jest.mock('react-router-dom', () => ({
   Link: () => <div />,
   useNavigate: () => jest.fn(),
 }));
 
-// This prevents Jest from actually trying to read Swiper inside EventSlide
 jest.mock('../components/EventSlide', () => () => <div />);
 
+// 2. REQUIRE THE FUNCTION MANUALLY (This avoids the declaration error)
 const { getVotingTotalCost } = require('./Home');
 
 describe('getVotingTotalCost Utility', () => {
