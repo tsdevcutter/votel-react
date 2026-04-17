@@ -9,15 +9,15 @@ jest.mock('axios');
 const mockEvents = [
   {
     id: 1,
-    title: 'Miss Africa 2026',
+    title: 'Miss Africa 2022',
     description_event: 'A prestigious beauty pageant.',
-    banner_event_main: { url: 'https://test-image.jpg' }
+    banner_event_main: { url: 'https://votelog.tsdevcut.co.za/wp-content/uploads/2024/09/miss2022.png' }
   },
   {
     id: 2,
-    title: 'Miss Africa 2025',
+    title: 'Miss Africa 2020',
     description_event: 'A prestigious beauty pageant for us to celebrate.',
-    banner_event_main: { url: 'https://test-image.jpg' }
+    banner_event_main: { url: 'https://votelog.tsdevcut.co.za/wp-content/uploads/2024/08/miss2020.png' }
   }
 ];
 
