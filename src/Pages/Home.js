@@ -10,7 +10,7 @@ function Home() {
 
   const [currentEvent, setCurrentEvent]                                 = useState();
   const [eventList, setEventList]                                       = useState([]);
-  const [showSnipVideoModal, setShowSnipVideoModal]                     = useState(false);
+  //const [showSnipVideoModal, setShowSnipVideoModal]                     = useState(false);
 
   const defaultImageUrl = 'https://votelog.tsdevcut.co.za/wp-content/themes/votelogs/images/banner-5185596.png';
 
