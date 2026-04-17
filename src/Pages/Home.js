@@ -1,9 +1,9 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import * as CONSTANTS from "../CONSTANTS";
 import EventSlide from '../components/EventSlide';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
 function Home() {
 
