@@ -1,4 +1,4 @@
-import { getVotingTotalCost } from './utils/voting'; // Adjust path if needed
+import { getVotingTotalCost } from '../utils/voting'; // Adjust path if needed
 
 describe('Voting Calculation', () => {
   test('calculates 280 votes at 0.5 rate correctly', () => {
