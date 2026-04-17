@@ -22,6 +22,7 @@ const mockEvents = [
   }
 ];
 
+
 test('fetches events and displays the first event on load', async () => {
   axios.get.mockResolvedValue({ data: mockEvents });
 

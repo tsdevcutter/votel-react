@@ -20,7 +20,7 @@ function Home() {
   const collectListOfEvents = async () => {
     try{
       const resEvents = await axios.get(CONSTANTS.API_PMODEL + "occassions");
-      //console.log(resEvents);
+    
       if(resEvents.data.length > 0){
         setCurrentEvent(resEvents.data[0]);
         setEventList(resEvents.data);
