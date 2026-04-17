@@ -1,5 +1,13 @@
 import { getVotingTotalCost } from './Home';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  Link: () => <div />, // Mocks the Link component
+}));
+
+// This prevents Jest from actually trying to read Swiper inside EventSlide
+jest.mock('../components/EventSlide', () => () => <div />);
+
 describe('getVotingTotalCost Utility', () => {
   test('multiplies votes by 0.5 and returns string with 2 decimals', () => {
     expect(getVotingTotalCost(100)).toBe('50.00');
